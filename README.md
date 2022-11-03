@@ -40,13 +40,13 @@ Set your apikey in order to request solving tasks.
 - **Handler it's based on [captchaai-npm](https://github.com/0qwertyy/captchaai-npm) (nodejs api wrapper for captchaai.io api).**
 
 - Get the currently handler with `CaptchaaiPlugin.handler()` method.
-- Perform any method that [***captchaai-npm***](https://github.com/0qwertyy/captchaai-npm) brings.
-- Supported captcha tasks listed on [***captchaai-npm***](https://github.com/0qwertyy/captchaai-npm) at *Supported API methods*.
+- Perform any method that [captchaai-npm](https://github.com/0qwertyy/captchaai-npm) brings.
+- Supported captcha tasks listed on [captchaai-npm](https://github.com/0qwertyy/captchaai-npm) at *Supported API methods*.
 
 🖱 Extra DOM Features
 -
 
-- [x] **`.hcaptchaclicker(page)`**  - handle a page including hcaptcha and trigger, then emulate human clicks. *[example script.]()*
+- [x] **`.hcaptchaclicker(page)`**  - handle a page including hcaptcha and trigger, then emulate human clicks. *[example script.](https://github.com/0qwertyy/puppeteer-extra-plugin-captchaai/blob/master/examples/scripts/discord-token-singup.js)*
 
 ![](https://i.ibb.co/VqVCrZD/webstorm64-a8-AKCsln4p.png)
 
@@ -57,4 +57,4 @@ Set your apikey in order to request solving tasks.
 📁 Examples
 -
 
-figure out at examples directory
+figure out at [examples](https://github.com/0qwertyy/puppeteer-extra-plugin-captchaai/blob/master/examples/) directory
