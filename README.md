@@ -39,20 +39,40 @@ Set your apikey in order to request solving tasks.
 
 - **Handler it's based on [captchaai-npm](https://github.com/0qwertyy/captchaai-npm) (nodejs api wrapper for captchaai.io api).**
 
-- Get the currently handler with `CaptchaaiPlugin.handler()` method.
+- Retrieve the currently handler:
+```javascript
+const handler = CaptchaaiPlugin.handler()
+```
 - Perform any method that [captchaai-npm](https://github.com/0qwertyy/captchaai-npm) brings.
-- Supported captcha tasks listed on [captchaai-npm](https://github.com/0qwertyy/captchaai-npm) at *Supported API methods*.
+- Supported captcha tasks listed on captchaai-npm at [*Supported API methods*](https://github.com/0qwertyy/captchaai-npm#%EF%B8%8Fsupported-api-methods).
+
+*example: retrieve handler and call for funcaptcha token.*
+```javascript
+//  
+await CaptchaaiPlugin.handler()
+  .funcaptchaproxyless(websiteURL, websitePublicKey, funcaptchaApiJSSubdomain)
+  .then((response) => {
+    if(response.error !== 0){ 
+        const token = response.apiResponse.solution;
+    }else{ 
+        const token = null; 
+        console.log('[myapp][got error]' + JSON.stringify(response.apiResponse))
+    }  
+  }).catch(e => {
+      console.log(e);
+  })
+```
 
 🖱 Extra DOM Features
 -
 
-- [x] **`.hcaptchaclicker(page)`**  - handle a page including hcaptcha and trigger, then emulate human clicks. *[example script.](https://github.com/0qwertyy/puppeteer-extra-plugin-captchaai/blob/master/examples/scripts/discord-token-singup.js)*
+- [x] **`await CaptchaaiPlugin.hcaptchaclicker(page)`**  - handle a page including hcaptcha iframe and trigger it, then emulates human clicks. *[example script (how to use).](https://github.com/0qwertyy/puppeteer-extra-plugin-captchaai/blob/master/examples/hcaptchaclicker.js)*
 
 ![](https://i.ibb.co/VqVCrZD/webstorm64-a8-AKCsln4p.png)
 
 - [ ] hcaptcha callback.
-- [ ] funcaptcha clicker
-- [ ] funcaptcha callback
+- [ ] funcaptcha clicker.
+- [ ] funcaptcha callback.
 
 📁 Examples
 -
