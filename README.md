@@ -68,7 +68,7 @@ await CaptchaaiPlugin.handler()
 
 - [x] **`await CaptchaaiPlugin.hcaptchaclicker(page)`**  - handle a page including hcaptcha iframe and trigger it, then emulates human clicks. *[example script (how to use).](https://github.com/0qwertyy/puppeteer-extra-plugin-captchaai/blob/master/examples/hcaptchaclicker.js)*
 
-![](https://i.ibb.co/VqVCrZD/webstorm64-a8-AKCsln4p.png)
+![](https://i.ibb.co/kcKbfwk/chrome-j2-H9epc1-U6.gif)
 
 - [ ] hcaptcha callback.
 - [ ] funcaptcha clicker.
