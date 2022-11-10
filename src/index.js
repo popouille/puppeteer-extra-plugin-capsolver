@@ -103,7 +103,7 @@ class CaptchaaiPlugin extends PuppeteerExtraPlugin {
                 else{ coords = captchaai.apiResponse.solution.objects; }
             }
 
-            for (const [i, isImage] of coords.entries()) { if(isImage) { await frame.click(`div.task-image:nth-child(${i + 1})`); if(self.opts.handler.verbose !== 0){ console.log('[CaptchaaiPlugin][Clicked! '+(i+1)+']'); } } await sleep(Math.floor(Math.random() * (1000 - 100) + 100))}
+            for (const [i, isImage] of coords.entries()) { if(isImage) { await frame.click(`div.task-image:nth-child(${i + 1})`); if(self.opts.handler.verbose !== 0){ console.log('[CaptchaaiPlugin][Clicked! '+(i+1)+']'); } } await sleep(Math.floor(Math.random() * (600 - 100) + 100))}
             await frame.waitForTimeout(200);
             let submitbtn = await frame.$('.button-submit.button');
             await submitbtn.evaluate(b => { b.click(); })
