@@ -1,5 +1,5 @@
 # puppeteer-extra-plugin-captchaai
-[![](https://img.shields.io/badge/1.0.0-puppeteer--extra--plugin--captchaai-blue?logo=npm&logoColor=white)](https://www.npmjs.com/package/puppeteer-extra-plugin-captchaai)
+[![](https://img.shields.io/badge/1.0.1-puppeteer--extra--plugin--captchaai-blue?logo=npm&logoColor=white)](https://www.npmjs.com/package/puppeteer-extra-plugin-captchaai)
 [![](https://img.shields.io/badge/provider-captchaai.io-blue)](https://www.captchaai.io/)
 [![](https://img.shields.io/badge/API_doc-captchaai.atlassian.net-blue)](https://captchaai.atlassian.net/wiki/spaces/CAPTCHAAI/pages/393295/All+task+types+and+price+list)
 
@@ -48,7 +48,6 @@ const handler = CaptchaaiPlugin.handler()
 
 *example: retrieve handler and call for funcaptcha token.*
 ```javascript
-//  
 await CaptchaaiPlugin.handler()
   .funcaptchaproxyless(websiteURL, websitePublicKey, funcaptchaApiJSSubdomain)
   .then((response) => {
