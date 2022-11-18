@@ -1,9 +1,9 @@
 const puppeteer = require('puppeteer-extra');
 const { executablePath } = require('puppeteer');
-const CaptchaaiPlugin = require('puppeteer-extra-plugin-captchaai')(); // ! Initialize once with ()
+const CapSolverPlugin = require('../../src/index')(); // ! Initialize once with ()
 
-puppeteer.use(CaptchaaiPlugin);
-CaptchaaiPlugin.setHandler('CAI-XXX...', 1);
+puppeteer.use(CapSolverPlugin);
+CapSolverPlugin.setHandler('CAI-C80954DFBBACBBAEAD84395D19554D65', 1);
 
 async function fill(page){
     // ## fill form
@@ -57,13 +57,13 @@ async function tokenizeHcaptcha(hcaptchaPage, websiteURL, websiteKey){
 
     await hcaptchaPage.waitForTimeout(100);
 
-    const handler = CaptchaaiPlugin.handler();
+    const handler = CapSolverPlugin.handler();
     const response = await handler.hcaptchaproxyless(websiteURL, websiteKey);
 
     if(response.error !== 0 || response.apiResponse.errorId !== 0){ throw response.apiResponse; }   // throw solving/request error exception
     else{
         // handle Token into Page
-        let token = String(response.apiResponse.solution.gRecaptchaResponse);   // token from captchaai response
+        let token = String(response.apiResponse.solution.gRecaptchaResponse);   // token from capsolver response
         await hcaptchaPage.evaluate((token) => {
             document.querySelector('iframe[title="widget containing checkbox for hCaptcha security challenge"]').setAttribute('data-hcaptcha-response', token);
             document.querySelector('textarea[name="h-captcha-response"]').innerHTML = token;
@@ -81,7 +81,7 @@ async function tokenizeHcaptcha(hcaptchaPage, websiteURL, websiteKey){
 
 // ########## //
 // ## MAIN ## //
-// ########## //  qwertyy 2022 - https://github.com/0qwertyy/puppeteer-extra-plugin-captchaai
+// ########## //  qwertyy 2022 - https://github.com/0qwertyy/puppeteer-extra-plugin-capsolver
 
 const targeturl = 'https://discord.com/register';
 const catchall = '@owndomain.net';

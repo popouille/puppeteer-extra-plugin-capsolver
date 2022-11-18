@@ -1,13 +1,13 @@
 const puppeteer = require('puppeteer-extra');
 const { executablePath } = require('puppeteer');
-const CaptchaaiPlugin = require('puppeteer-extra-plugin-captchaai')(); // ! Initialize once with ()
+const CapSolverPlugin = require('../src/index')(); // ! Initialize once with ()
 
-puppeteer.use(CaptchaaiPlugin);
-CaptchaaiPlugin.setHandler('CAI-XXX...', 1); // set your captchaai.io apikey
+puppeteer.use(CapSolverPlugin);
+CapSolverPlugin.setHandler('CAI-C80954DFBBACBBAEAD84395D19554D65', 1); // set your capsolver.com apikey
 
 // ########## //
 // ## MAIN ## //  *hcaptchaclicker example
-// ########## //  qwertyy 2022 - https://github.com/0qwertyy/puppeteer-extra-plugin-captchaai
+// ########## //  qwertyy 2022 - https://github.com/0qwertyy/puppeteer-extra-plugin-capsolver
 
 let targeturl = 'https://accounts.hcaptcha.com/demo';
 
@@ -19,14 +19,14 @@ puppeteer.launch({
     await browser.createIncognitoBrowserContext();
     let page = await browser.newPage();
     await page.goto(targeturl);
-    console.log('[myapp][get]['+targeturl+']');
+    console.log('[myapp][get][' + targeturl + ']');
 
     //
     // build your own script here ...
     //
 
     console.log('[myapp][running hcaptcha clicker on '+JSON.stringify(page)+']');
-    await CaptchaaiPlugin.hcaptchaclicker(page, true)
+    await CapSolverPlugin.hcaptchaclicker(page, true)
     .then(async (page) => {
         // handle hcaptchaclicker success
         await page.click('#hcaptcha-demo-submit');
